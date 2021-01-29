@@ -1,0 +1,139 @@
+<html>
+<head>
+<title>FirstTest.java</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #000080; font-weight: bold;}
+.s1 { color: #000000;}
+.s2 { color: #008000; font-weight: bold;}
+.s3 { color: #808080; font-style: italic;}
+.s4 { color: #0000ff;}
+</style>
+</head>
+<body bgcolor="#ffffff">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#c0c0c0" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+FirstTest.java</font>
+</center></td></tr></table>
+<pre><span class="s0">package </span>io.testsheepnz.github;
+
+<span class="s0">import </span>org.junit.Test;
+<span class="s0">import </span>org.openqa.selenium.By;
+<span class="s0">import </span>org.openqa.selenium.WebElement;
+<span class="s0">import </span>org.openqa.selenium.chrome.ChromeDriver;
+<span class="s0">import </span>org.openqa.selenium.support.ui.Select;
+
+<span class="s0">import </span>java.util.concurrent.TimeUnit;
+
+<span class="s0">public class </span>FirstTest {
+
+
+    @Test
+    <span class="s0">public void </span>firstTest() {
+        System.setProperty(<span class="s2">&quot;webdriver.chrome.driver&quot;</span>, <span class="s2">&quot;/Users/jimin/Downloads/chromedriver.exe&quot;</span>);
+        ChromeDriver driver = <span class="s0">new </span>ChromeDriver();
+
+        driver.get(<span class="s2">&quot;https://testsheepnz.github.io/BasicCalculator.html&quot;</span>);<span class="s3">//Открываем ссылку</span>
+        
+
+        WebElement Build = driver.findElement(By.id(<span class="s2">&quot;selectBuild&quot;</span>));<span class="s3">//Выбираем в первом вып.списке элемент Prototype</span>
+        Select build = <span class="s0">new </span>Select(Build);
+        build.selectByValue(<span class="s2">&quot;0&quot;</span>);
+
+        WebElement calc1 = driver.findElement(By.id(<span class="s2">&quot;number1Field&quot;</span>));<span class="s3">//Ввод в первой строке значения 2</span>
+        calc1.click();
+        calc1.sendKeys(<span class="s2">&quot;2&quot;</span>);
+
+        WebElement calc2 = driver.findElement(By.id(<span class="s2">&quot;number2Field&quot;</span>));<span class="s3">//Ввод во второй строке значения 3</span>
+        calc2.click();
+        calc2.sendKeys(<span class="s2">&quot;3&quot;</span>);
+
+        WebElement select1 = driver.findElement(By.id(<span class="s2">&quot;selectOperationDropdown&quot;</span>));<span class="s3">//Выбор во втором выпадающем списке значения</span>
+        Select select = <span class="s0">new </span>Select(select1);
+        select.selectByValue(<span class="s2">&quot;1&quot;</span>);
+
+        WebElement calculate = driver.findElement(By.id(<span class="s2">&quot;calculateButton&quot;</span>));<span class="s3">//кликаем кнопку Calculate</span>
+        calculate.click();
+
+        WebElement value = driver.findElement(By.id(<span class="s2">&quot;numberAnswerField&quot;</span>));
+        System.out.println(value.getAttribute(<span class="s2">&quot;value&quot;</span>));
+
+
+        driver.quit();
+
+    }
+
+    @Test
+    <span class="s0">public void </span>secondTest() {
+        System.setProperty(<span class="s2">&quot;webdriver.chrome.driver&quot;</span>, <span class="s2">&quot;/Users/jimin/Downloads/chromedriver.exe&quot;</span>);
+        ChromeDriver driver = <span class="s0">new </span>ChromeDriver();
+
+        driver.get(<span class="s2">&quot;https://testsheepnz.github.io/BasicCalculator.html&quot;</span>);<span class="s3">//Открываем ссылку</span>
+
+        WebElement Build = driver.findElement(By.id(<span class="s2">&quot;selectBuild&quot;</span>));<span class="s3">//Выбираем в первом вып.списке элемент Prototype</span>
+        Select build = <span class="s0">new </span>Select(Build);
+        build.selectByValue(<span class="s2">&quot;0&quot;</span>);
+
+        WebElement calc1 = driver.findElement(By.id(<span class="s2">&quot;number1Field&quot;</span>));<span class="s3">//Ввод в первой строке значения 2</span>
+        calc1.click();
+        calc1.sendKeys(<span class="s2">&quot;gs&quot;</span>);
+
+        WebElement calc2 = driver.findElement(By.id(<span class="s2">&quot;number2Field&quot;</span>));<span class="s3">//Ввод во второй строке значения 3</span>
+        calc2.click();
+        calc2.sendKeys(<span class="s2">&quot;bu&quot;</span>);
+
+        WebElement select1 = driver.findElement(By.id(<span class="s2">&quot;selectOperationDropdown&quot;</span>));<span class="s3">//Выбор во втором выпадающем списке значения</span>
+        Select select = <span class="s0">new </span>Select(select1);
+        select.selectByValue(<span class="s2">&quot;4&quot;</span>);
+
+        WebElement calculate = driver.findElement(By.id(<span class="s2">&quot;calculateButton&quot;</span>));<span class="s3">//кликаем кнопку Calculate</span>
+        calculate.click();
+
+        WebElement value = driver.findElement(By.id(<span class="s2">&quot;numberAnswerField&quot;</span>));<span class="s3">//Получаем значение</span>
+        System.out.println(value.getAttribute(<span class="s2">&quot;value&quot;</span>));
+
+
+        driver.quit();
+
+
+    }
+    @Test
+    <span class="s0">public void </span>thirdTest() {
+        System.setProperty(<span class="s2">&quot;webdriver.chrome.driver&quot;</span>, <span class="s2">&quot;/Users/jimin/Downloads/chromedriver.exe&quot;</span>);
+        ChromeDriver driver = <span class="s0">new </span>ChromeDriver();
+
+        driver.get(<span class="s2">&quot;https://testsheepnz.github.io/random-number.html &quot;</span>);<span class="s3">//Открываем ссылку</span>
+
+
+        WebElement Build = driver.findElement(By.id(<span class="s2">&quot;buildNumber&quot;</span>));<span class="s3">//Выбираем в первом вып.списке элемент Demo</span>
+        Select build = <span class="s0">new </span>Select(Build);
+        build.selectByValue(<span class="s2">&quot;0&quot;</span>);
+
+        WebElement calc1 = driver.findElement(By.id(<span class="s2">&quot;rollDiceButton&quot;</span>));<span class="s3">//кликаем Roll the Dice</span>
+        calc1.click();
+
+        driver.manage().timeouts().implicitlyWait(<span class="s4">10</span>, TimeUnit.SECONDS);
+
+
+        WebElement calc2 = driver.findElement(By.id(<span class="s2">&quot;numberGuess&quot;</span>));<span class="s3">//Ищем строку для ввода строки</span>
+        calc2.click();
+        calc2.sendKeys(<span class="s2">&quot;string&quot;</span>);
+
+        WebElement submit = driver.findElement(By.id(<span class="s2">&quot;submitButton&quot;</span>));<span class="s3">//Кликаем кнопку Submit</span>
+        submit.click();
+
+
+        WebElement value = driver.findElement(By.id(<span class="s2">&quot;feedbackLabel&quot;</span>));<span class="s3">//Получаем значение из строки вывода</span>
+        System.out.println(value.getText());
+
+
+
+        driver.quit();
+
+    }
+
+}
+</pre>
+</body>
+</html>
